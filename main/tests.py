@@ -1,30 +1,37 @@
 from django.test import LiveServerTestCase
-from selenium import webdriver
+from selenium import webdriver # web driver module that allows test to interacting with chrome driver
 from selenium.webdriver.common.keys import Keys
 
-# Create your tests here.
-class PlayerFormTest(LiveServerTestCase):
 
-  def testform(self):
+
+class NameFormTest(LiveServerTestCase):  
+  #NameFormtest class will inherit methods from the LiverServerTestCase classes 
+  #will lanch live django server and once down teardown. Amid this selenium will excute the the series of functional test
+  #emulating a users actions
+
+
+  def testformpage(self):
     selenium = webdriver.Chrome()
-    #Choose your url to visit
-    selenium.get('http://127.0.0.1:8000/')
-    #find the elements you need to submit form
-    player_name = selenium.find_element_by_id('id_name')
-    #player_height = selenium.find_element_by_id('id_height')
-    #player_team = selenium.find_element_by_id('id_team')
-    #player_ppg = selenium.find_element_by_id('id_ppg')
 
+    #This is used to select your url for your site which in this case is localhost 
+    selenium.get('http://127.0.0.1:8000/')
+
+    #find the html form element you need to submit with name. In this case "id_name" is way name need to inputted.
+    name = selenium.find_element_by_id('id_name')
+    
+    #similar to above but finding the submit element
     submit = selenium.find_element_by_id('submit_button')
 
-    #populate the form with data
-    player_name.send_keys('Lebron James')
-    #player_team.send_keys('Los Angeles Lakers')
-    #player_height.send_keys('6 feet 9 inches')
-    #player_ppg.send_keys('25.7')
+    #populate the form with name 
+    name.send_keys('Lebron James')
 
-    #submit form
+   
+
+    #this line pushes the submit form button
     submit.send_keys(Keys.RETURN)
 
-    #check result; page source looks at entire html document
+    #checking the result of redirect page /welcome; search page source looks at entire html document for "Lebron James"
+
     assert 'Lebron James' in selenium.page_source
+
+    

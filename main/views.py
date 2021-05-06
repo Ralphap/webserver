@@ -1,13 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponse
 from .forms import PlayerForm
-from .models import Player
+
+
 
 # Create your views here.
 def homepage(request):
   if request.method == "POST":
     form = PlayerForm(request.POST)
     if form.is_valid():
-      form.save()
-  players = Player.objects.all()
+      
+
+
+      userinput = form.cleaned_data['name']
+      request.session['userinput'] = userinput
+      return redirect(reverse('main:welcomes'))
+
+  
   form = PlayerForm()
-  return render(request, "home.html", {"form": form, "players":players})
+  return render(request, "home.html", {"form": form})
+  
+  
+
+
+
+
+
+
+def welcomes(request):
+  userinput = request.session['userinput']
+  
+  my_context = {
+    "nameofuser": userinput 
+  }
+  
+
+  return render(request,"welcome.html",my_context)
