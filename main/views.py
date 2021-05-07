@@ -37,7 +37,7 @@ def homepage(request):
   
   #once the homepage function is called, function render returns html from templates/home.html in 
 
-  #the Http response, the render function also accesses the form model (imported from forms.py) via context argument
+  #the Http response, the render function also accesses the form model (imported from forms.py) via  the dictionary a context argument
 
   #so the schema for the form model is added to homepage html. 
   
@@ -72,7 +72,7 @@ def welcomes(request):
 
 #The userinput is put in dictionary
 
-#return render serve http response with welcomes.html template. The dictionary is also passed as argument  
+#return render serve http response with welcomes.html template. The dictionary is also passed as the context argument  
 
 # resulting in name value being added to template html
 
