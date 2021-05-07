@@ -1,9 +1,9 @@
 from django import forms
-from .models import Player
+from .models import Addname
 
-class PlayerForm(forms.ModelForm):
+class NameForm(forms.ModelForm):
 
   class Meta:
-    model = Player
+    model = Addname
     fields = ('name',)
     

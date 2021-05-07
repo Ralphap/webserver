@@ -4,12 +4,12 @@
        
   </head>
   <body>
-      {% load crispy_forms_tags %}     
+           
 
       <div class="container">
       <form method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ form }}
         
         <button class ="btn btn-primary" type="submit" id= "submit_button">Submit</button>
       </form>

@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 
 class NameFormTest(LiveServerTestCase):  
   #NameFormtest class will inherit methods from the LiverServerTestCase classes 
-  #will lanch live django server and once down teardown. Amid this selenium will excute the the series of functional test
+  #will launch live django server and once down teardown. Amid this selenium will excute the the series of functional test
   #emulating a users actions
 
 
