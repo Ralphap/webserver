@@ -52,7 +52,9 @@ Install the project dependencies:
 
 $pip install -r requirements.txt 
 
-$run python3 manage.py test 
+start the functional script
+
+$python3 manage.py test 
 
 This starts the functional test, make sure open different terminal to where you deployed webserver image
 
