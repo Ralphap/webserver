@@ -42,17 +42,17 @@ $ pip3 install virtualenv
 
 In the webserver directory create
 
-python3 -m venv  <“name”>
+$python3 -m venv  <“name”>
 
 start the virtual environment(activate)
 
-source <“name”>/bin/activate
+$source <“name”>/bin/activate
 
 Install the project dependencies:
 
-pip install -r requirements.txt 
+$pip install -r requirements.txt 
 
-run python3 manage.py test 
+$run python3 manage.py test 
 
 This starts the functional test, make sure open different terminal to where you deployed webserver image
 
