@@ -31,7 +31,7 @@ class NameFormTest(LiveServerTestCase):
     #this line pushes the submit form button
     submit.send_keys(Keys.RETURN)
 
-    #checking the result of redirect page /welcome; search page source looks at entire html document for "Lebron James"
+    #checking the result of redirect page /welcome; search page source looks at entire html document for "Raphael"
 
     assert 'Raphael' in selenium.page_source
 
