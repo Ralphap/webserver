@@ -6,11 +6,12 @@ from selenium.webdriver.common.keys import Keys
 
 class NameFormTest(LiveServerTestCase):  
   #NameFormtest class will inherit methods from the LiverServerTestCase classes 
+  
   #will launch live django server and once down teardown. Amid this selenium will excute the the series of functional test
   #emulating a users actions
 
 
-  def testformpage(self):
+  def testform(self):
     selenium = webdriver.Chrome()
 
     #This is used to select your url for your site which in this case is localhost 
@@ -23,7 +24,7 @@ class NameFormTest(LiveServerTestCase):
     submit = selenium.find_element_by_id('submit_button')
 
     #populate the form with name 
-    name.send_keys('Lebron James')
+    name.send_keys('Raphael')
 
    
 
@@ -32,6 +33,6 @@ class NameFormTest(LiveServerTestCase):
 
     #checking the result of redirect page /welcome; search page source looks at entire html document for "Lebron James"
 
-    assert 'Lebron James' in selenium.page_source
+    assert 'Raphael' in selenium.page_source
 
     
